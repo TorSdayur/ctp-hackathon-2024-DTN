@@ -1,0 +1,25 @@
+{
+  "name": "HackBot",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "webpack --env target=all --mode=production",
+    "start": "webpack-dev-server --env target=dev --mode=development",
+    "deploy": "botonic deploy -c build",
+    "test": "jest",
+    "build:self-hosted": "webpack --env target=self-hosted --mode=production"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.23.9",
+    "@botonic/react": "^0.21.4",
+    "botonic": "^0.6.0"
+  },
+  "devDependencies": {
+    "@botonic/dx": "^0.26.0",
+    "babel-core": "^4.7.16",
+    "babel-loader": "^9.1.3",
+    "babel-preset-react": "^6.24.1"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
