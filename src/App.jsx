@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import Card from './components/Card'
 import './App.css'
 
@@ -16,15 +14,19 @@ function App() {
         title: "Something"
       }],
       service_type: "food",
-      school: "Hunter",
+      school: "hunter",
     }
   ]
   
-  const onClick = (e) => {
-    e.preventDefault();
-    let service_type = document.getElementById('search').value;
-    let new_cards = services.filter((service) => service.service_type === service_type);
-    setCards(new_cards);
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter')
+    {
+      let query = document.getElementById('search');
+      let service_type = query.value;
+      let new_cards = services.filter((service) => service.service_type === service_type);
+      setCards(new_cards);
+      query.value = '';
+    }
   }
 
   return (
@@ -44,10 +46,16 @@ function App() {
             type="text"
             id="search" 
             name="search"
+            placeholder="Search services..."
+            list="services"
+            autoComplete="off"
+            onKeyDown={handleKeyDown}
           />
-          <input type="submit" value="Search" onClick={onClick}/>
+          <datalist id="services">
+            <option value="food"/>
+            <option value="dental"/>
+          </datalist>
       </div>
-    
     </>
   )
 }
