@@ -1,7 +1,9 @@
+import haversine from 'haversine-distance'
+
 export default function filterFoodServices(
     foodServices,
     boroughs,
-    dist,
+    latLong,
     availabilities,
     setFilteredServices)
 {
@@ -11,9 +13,18 @@ export default function filterFoodServices(
         filteredFoodServices = filteredFoodServices.filter(
             (foodService) => boroughs.includes(foodService.borough));
     }
-    if (dist)
+    if (latLong)
     {
-        
+        const user_loc = latLong;
+        filteredFoodServices.sort((a,b) => {
+            if (haversine(user_loc, a) < haversine(user_loc, b)) {
+                return 1;
+            }
+            if (haversine(user_loc, a) > haversine(user_loc, b)) {
+                return -1;
+            }
+            return 0;
+        })
     }
     if (availabilities)
     {
