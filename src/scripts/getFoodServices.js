@@ -12,16 +12,33 @@ export function getFoodServices(food_providers, setFoodServices) {
           borough: fp['BOROUGH'],
           availabilities: getAvailabilies(
             fp['HOURS'],
-            fp['mon'],
-            fp['tue'],
-            fp['wed'],
-            fp['thur'],
-            fp['fri'],
-            fp['sat'],
-            fp['sun']
+            [
+              fp['mon'],
+              fp['tue'],
+              fp['wed'],
+              fp['thur'],
+              fp['fri'],
+              fp['sat'],
+              fp['sun']
+            ]
           )
         }
       )
     }
     setFoodServices(new_services);
+}
+
+//currently doesn't handle hours
+function getAvailabilies(hours, days_available)
+{
+  let availabilities = [];
+  days = ['m','tu', 'w', 'th', 'f', 'sa', 'su'];
+  for (const index in days_available)
+  {
+    if (days_available[index])
+    {
+      availabilities.push[days[index]];
+    }
+  }
+  return availabilities;
 }
