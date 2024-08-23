@@ -4,12 +4,24 @@ import FilterMenu from "./FilterMenu"
 export default function Container()
 {
     //for filtering cards
-    const [borough, setBorough] = useState('');
+    const [boroughs, setBoroughs] = useState([]);
     const [dist, setDist] = useState('');
     const [availability, setAvailability] = useState('');
 
-    const onClickBorough = (selectedBorough) => {
-        setBorough(selectedBorough);
+    const onClickBoroughs = (selectedBorough) => {
+        if (boroughs.includes(selectedBorough))
+        {
+            setBoroughs(
+                boroughs.filter((b) => b != selectedBorough)
+            );
+        }
+        else
+        {
+            setBoroughs([
+                ...boroughs,
+                selectedBorough
+            ])
+        }
     };
 
     const onClickDist = (selectedDist) => {
@@ -23,7 +35,7 @@ export default function Container()
     return (
         <div className="container">
             <FilterMenu 
-                onClickBorough={onClickBorough}
+                onClickBoroughs={onClickBoroughs}
                 onClickAvailabilty={onClickAvailability}
                 onClickDist={onClickDist}
             />
