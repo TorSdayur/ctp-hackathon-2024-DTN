@@ -2,13 +2,13 @@ import BoroughsDrowdownMenu from './BoroughsDropdownMenu'
 import DistPicker from './DistPicker'
 import AvailabiltyPicker from './AvailabilityPicker'
 
-export default function FilterMenu({onClickBoroughs, onClickAvailabilty, onClickDist})
+export default function FilterMenu({onClickBoroughs, onClickAvailabilities, onClickDist})
 {
     return (
-        <div className="filter-menu">
+        <nav className="filter-menu">
             <BoroughsDrowdownMenu onClick={onClickBoroughs}/>
-            <AvailabiltyPicker onClick={onClickAvailabilty}/>
+            <AvailabiltyPicker onClick={onClickAvailabilities}/>
             <DistPicker onClick={onClickDist}/>
-        </div>
+        </nav>
     );
 }

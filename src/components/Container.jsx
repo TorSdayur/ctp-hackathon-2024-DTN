@@ -1,7 +1,10 @@
 import { useState } from "react";
 import FilterMenu from "./FilterMenu"
+import ContentContainer from "./ContentContainer"
+import CardsContainer from "./CardsContainer"
+import Map from "./Map"
 
-export default function Container()
+export default function Container({foodServices})
 {
     //for filtering cards
     const [boroughs, setBoroughs] = useState([]);
@@ -47,6 +50,15 @@ export default function Container()
     
     return (
         <div className="container">
+            <ContentContainer>
+                <Map />
+                <CardsContainer
+                    foodServices={foodServices}
+                    boroughs={boroughs}
+                    dist={dist}
+                    availabilities={availabilities}
+                />
+            </ContentContainer>
             <FilterMenu 
                 onClickBoroughs={onClickBoroughs}
                 onClickAvailabilty={onClickAvailabilities}
