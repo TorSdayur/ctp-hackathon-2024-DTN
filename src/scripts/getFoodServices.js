@@ -10,7 +10,8 @@ export function getFoodServices(food_providers, setFoodServices) {
           phone: fp['ORG PHONE'],
           address: fp['FULL ADDRESS'],
           borough: fp['BOROUGH'].toLowerCase(),
-          availabilities: getAvailabilies(
+          hours: fp['HOURS'],
+          days: getDays(
             [
               fp['mon'],
               fp['tue'],
@@ -28,21 +29,15 @@ export function getFoodServices(food_providers, setFoodServices) {
 }
 
 //currently doesn't handle hours
-function getAvailabilies(availabilities)
+function getDays(days_available)
 {
   let a = [];
   days = ['m','tu', 'w', 'th', 'f', 'sa', 'su'];
-  for (const index in availabilities)
+  for (const index in days_available)
   {
-    if (availabilities[index])
+    if (days_available[index])
     {
-      //days[index]: day of week
-      //availabilities[index]: hours of corresponding day 
-      a.push(days[index] + ';' + availabilities[index]);
-    }
-    else
-    {
-      a.push(days[index] + ';');
+      a.push(days[index]);
     }
   }
   return a;
