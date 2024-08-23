@@ -2,7 +2,7 @@ import BoroughsDrowdownMenu from './BoroughsDropdownMenu'
 import DistPicker from './DistPicker'
 import AvailabiltyPicker from './AvailabilityPicker'
 
-import '../styles/Filtermenu.css'
+import '../styles/FilterMenu.css'
 
 //Navigation menu for filtering
 export default function FilterMenu({onClickBoroughs, onClickAvailabilities, onClickDist})
