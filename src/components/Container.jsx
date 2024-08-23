@@ -6,7 +6,7 @@ export default function Container()
     //for filtering cards
     const [boroughs, setBoroughs] = useState([]);
     const [dist, setDist] = useState('');
-    const [availability, setAvailability] = useState('');
+    const [availabilities, setAvailabilities] = useState([]);
 
     const onClickBoroughs = (selectedBorough) => {
         if (boroughs.includes(selectedBorough))
@@ -28,15 +28,28 @@ export default function Container()
         setDist(selectedDist);
     };
 
-    const onClickAvailability = (selectedAvailability) => {
-        setAvailability(selectedAvailability);
+    const onClickAvailabilities = (selectedAvailability) => {
+        setAvailabilities(selectedAvailability);
+        if (availabilities.includes(selectedAvailability))
+            {
+                setAvailabilities(
+                    availabilities.filter((a) => a != availabilities)
+                );
+            }
+            else
+            {
+                setAvailabilities([
+                    ...availabilities,
+                    selectedAvailability
+                ])
+            }
     }
     
     return (
         <div className="container">
             <FilterMenu 
                 onClickBoroughs={onClickBoroughs}
-                onClickAvailabilty={onClickAvailability}
+                onClickAvailabilty={onClickAvailabilities}
                 onClickDist={onClickDist}
             />
         </div>
