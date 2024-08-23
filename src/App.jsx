@@ -1,13 +1,24 @@
 import { useEffect, useState } from 'react'
 import Container from './components/Container'
+
+import supabase from './utils/supabase'
+
 import './App.css'
 
 function App() {
   const [foodServices, setFoodServices] = useState([])
 
   useEffect(() => {
-    //fetch data from db
-    //getFood(setFoodServices);
+    async function getFoodServices() {
+      const {data: foodServices} = await supabase.from('food').select();
+
+      if (foodServices.length > 1)
+      {
+        setFoodServices(foodServices);
+      }
+    }
+
+    getFoodServices();
   }, []);
 
   return (
