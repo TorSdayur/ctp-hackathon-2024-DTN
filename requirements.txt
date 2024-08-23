@@ -7,6 +7,7 @@ Babel==2.8.0
 beautifulsoup4==4.12.3
 blinker==1.7.0
 branca==0.7.2
+build==1.2.1
 CacheControl==0.14.0
 cachetools==5.5.0
 certifi==2023.11.17
@@ -26,7 +27,6 @@ dash-table==5.0.0
 dbus-python==1.2.18
 Deprecated==1.2.14
 distro==1.7.0
-distro-info===1.1build1
 exceptiongroup==1.2.0
 firebase-admin==6.5.0
 Flask==3.0.0
@@ -75,12 +75,13 @@ msgpack==1.0.8
 narwhals==1.5.2
 nest-asyncio==1.6.0
 netifaces==0.11.0
-numpy==2.1.0
+numpy<2.0,>=1.20
 oauthlib==3.2.0
 openai==1.14.0
 packaging==23.2
 pandas==2.2.2
 pillow==10.2.0
+pip-tools==7.4.1
 plotly==5.18.0
 proto-plus==1.24.0
 protobuf==5.27.3
@@ -103,6 +104,7 @@ pyOpenSSL==21.0.0
 pyparsing==2.4.7
 PyPDF2==3.0.1
 pyproj==3.6.1
+pyproject_hooks==1.1.0
 python-apt==2.4.0
 python-dateutil==2.8.2
 python-dotenv==1.0.1
@@ -133,6 +135,7 @@ tabulate==0.9.0
 tenacity==8.2.3
 threadpoolctl==3.5.0
 toml==0.10.2
+tomli==2.0.1
 tornado==6.4.1
 tqdm==4.66.2
 typing_extensions==4.12.2
@@ -148,4 +151,3 @@ Werkzeug==3.0.1
 wrapt==1.16.0
 xyzservices==2024.6.0
 zipp==1.0.0
-folium==0.12.1
