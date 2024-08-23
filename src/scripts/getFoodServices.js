@@ -40,6 +40,10 @@ function getAvailabilies(availabilities)
       //availabilities[index]: hours of corresponding day 
       a.push(days[index] + ';' + availabilities[index]);
     }
+    else
+    {
+      a.push(days[index] + ';');
+    }
   }
   return a;
 }
