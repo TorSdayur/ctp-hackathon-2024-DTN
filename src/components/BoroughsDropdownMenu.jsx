@@ -1,11 +1,11 @@
-import '../styles/BoroughsDrowdownMenu.css'
+import '../styles/BoroughsDropdownMenu.css'
 
 export default function BoroughsDrowdownMenu({onClick})
 {
     return (
-        <div class="dropdown">
-            <button class="dropbtn">Boroughs</button>
-            <div class="dropdown-content">
+        <div className="dropdown">
+            <button className="dropbtn">Boroughs</button>
+            <div className="dropdown-content">
                 <button value="manhattan" onClick={(e) => onClick(e.target.value)}>Manhattan</button>
                 <button value="brooklyn" onClick={(e) => onClick(e.target.value)}>Brooklyn</button>
                 <button value="queens" onClick={(e) => onClick(e.target.value)}>Queens</button>

@@ -1,3 +1,7 @@
+import BoroughsDrowdownMenu from './BoroughsDropdownMenu'
+import DistPicker from './DistPicker'
+import AvailabiltyPicker from './AvailabilityPicker'
+
 export default function FilterMenu({onClickBorough, onClickAvailabilty, onClickDist})
 {
     return (
