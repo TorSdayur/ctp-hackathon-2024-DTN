@@ -19,7 +19,7 @@ export default function CardsNav({cardsSize, cardLimit, page, setPage})
     if (page === 0)
     {
         return (
-            <nav clasName="page-nav">
+            <nav className="page-nav">
                 <button disabled={true} onClick={onClick} value="prev-page"></button>
                 <button onClick={onClick} value="next-page"></button>
             </nav>
@@ -28,7 +28,7 @@ export default function CardsNav({cardsSize, cardLimit, page, setPage})
     else if ((page + 1) * cardLimit > cardsSize)
     {
         return (
-            <nav clasName="page-nav">
+            <nav className="page-nav">
                 <button onClick={onClick} value="prev-page"></button>
                 <button disabled={true} onClick={onClick} value="next-page"></button>
             </nav>
@@ -36,7 +36,7 @@ export default function CardsNav({cardsSize, cardLimit, page, setPage})
     }
     else {
         return (
-            <nav clasName="page-nav">
+            <nav className="page-nav">
                 <button onClick={onClick} value="prev-page"></button>
                 <button onClick={onClick} value="next-page"></button>
             </nav>

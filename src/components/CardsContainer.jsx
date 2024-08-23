@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Card from "./Card";
 import CardsNav from "./CardsNav";
@@ -20,9 +20,16 @@ export default function CardsContainer({
     
     const [page, setPage] = useState(0);
     const [cards, setCards] = useState([]);
+    const [filteredServices, setFilteredServices] = useState([]);
 
-    let filteredFoodServices = filterFoodServices(foodServices, boroughs, dist, availabilities);
-    getCards(filteredFoodServices, page, CARD_LIMIT, setCards);
+    useEffect(() => {
+        filterFoodServices(foodServices, boroughs, dist, availabilities, setFilteredServices);
+    }, [foodServices, boroughs, dist, availabilities]);
+
+    // Effect to get cards whenever filteredServices or page changes
+    useEffect(() => {
+        getCards(filteredServices, page, CARD_LIMIT, setCards);
+    }, [filteredServices, page]);
 
     return (
         <div className="cards-container">
