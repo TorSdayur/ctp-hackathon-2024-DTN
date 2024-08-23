@@ -3,7 +3,7 @@ export default function filterFoodServices(
     boroughs,
     dist,
     availabilities,
-    setFoodServices)
+    setFilteredServices)
 {
     let filteredFoodServices = foodServices;
     if (boroughs)
@@ -21,7 +21,7 @@ export default function filterFoodServices(
             (foodService) => filterAvailabilities(availabilities, foodService));
     }
 
-    setFoodServices(filteredFoodServices);
+    setFilteredServices(filteredFoodServices);
 }
 
 //hour from food_table can be formatted as such:
