@@ -4,6 +4,8 @@ import ContentContainer from "./ContentContainer"
 import CardsContainer from "./CardsContainer"
 import Map from "./Map"
 
+import '../styles/Container.css'
+
 export default function Container({foodServices})
 {
     //for filtering cards

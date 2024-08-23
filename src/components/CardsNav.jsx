@@ -1,3 +1,5 @@
+import '../styles/CardsNav.css'
+
 export default function CardsNav({cardsSize, cardLimit, page, setPage})
 {
     const onClick = (e) => {

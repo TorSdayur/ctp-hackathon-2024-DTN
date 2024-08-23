@@ -1,3 +1,5 @@
+import '../styles/BoroughsDropdownMenu.css'
+
 export default function Card({id, title, phone, address}) {
     return (
         <div

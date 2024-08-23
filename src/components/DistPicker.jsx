@@ -1,5 +1,7 @@
 import '../styles/DistPicker.css'
 
+//Will be either removed or just a simple toggle
+//will not include options to select from
 export default function DefaultPicker({onClick})
 {
     return (

@@ -6,6 +6,8 @@ import CardsNav from "./CardsNav";
 import filterFoodServices from "../scripts/filterFoodServices";
 import getCards from "../scripts/getCards";
 
+import '../styles/CardsContainer.css'
+
 
 export default function CardsContainer({
     foodServices,

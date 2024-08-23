@@ -1,5 +1,6 @@
 import '../styles/BoroughsDropdownMenu.css'
 
+//multiple boroughs may be selected
 export default function BoroughsDrowdownMenu({onClick})
 {
     return (
