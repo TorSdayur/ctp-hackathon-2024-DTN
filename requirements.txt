@@ -148,3 +148,4 @@ Werkzeug==3.0.1
 wrapt==1.16.0
 xyzservices==2024.6.0
 zipp==1.0.0
+folium==0.12.1
