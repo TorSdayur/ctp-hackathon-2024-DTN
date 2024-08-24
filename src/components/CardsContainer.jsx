@@ -24,12 +24,8 @@ export default function CardsContainer({
 
     useEffect(() => {
         filterFoodServices(foodServices, boroughs, dist, availabilities, setFilteredServices);
-    }, [foodServices, boroughs, dist, availabilities]);
-
-    // Effect to get cards whenever filteredServices or page changes
-    useEffect(() => {
         getCards(filteredServices, page, CARD_LIMIT, setCards);
-    }, [filteredServices, page]);
+    }, []);
 
     return (
         <div className="cards-container">

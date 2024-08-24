@@ -6,19 +6,19 @@ import supabase from './utils/supabase'
 import './App.css'
 
 function App() {
-  const [foodServices, setFoodServices] = useState([])
+  const [foodTable, setFoodTable] = useState([])
 
   useEffect(() => {
-    async function getFoodServices() {
-      const {data: foodServices} = await supabase.from('food').select();
+    async function getFoodTable() {
+      const {data: foodTable} = await supabase.from('food').select();
 
-      if (foodServices.length > 1)
+      if (foodTable.length > 1)
       {
-        setFoodServices(foodServices);
+        setFoodTable(foodTable);
       }
     }
 
-    getFoodServices();
+    getFoodTable();
   }, []);
 
   return (
@@ -28,7 +28,7 @@ function App() {
           <div className="logo"></div>
           <div className="mission-statement"></div>
         </header>
-        <Container foodServices={foodServices}/>
+        <Container foodTable={foodTable}/>
       </div>
     </>
   )
