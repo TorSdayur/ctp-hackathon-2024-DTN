@@ -8,7 +8,6 @@ import getCards from "../scripts/getCards";
 
 import '../styles/CardsContainer.css'
 
-
 export default function CardsContainer({
     foodServices,
     boroughs,
@@ -20,25 +19,32 @@ export default function CardsContainer({
     
     const [page, setPage] = useState(0);
     const [cards, setCards] = useState([]);
-    const [filteredServices, setFilteredServices] = useState([]);
+    const filteredServices = filterFoodServices(foodServices, boroughs, dist, availabilities);
 
     useEffect(() => {
-        filterFoodServices(foodServices, boroughs, dist, availabilities, setFilteredServices);
-        getCards(filteredServices, page, CARD_LIMIT, setCards);
-    }, []);
+        const gCards = async () => {
+            const crds = await getCards(filteredServices, page, CARD_LIMIT);
+            setCards(crds);
+        }
+        gCards();
+        
+    }, [boroughs, dist, availabilities, page]);
 
     return (
         <div className="cards-container">
-            {cards.map((card, index) => {
+            {cards.map((card, index) => (
                 <Card
+                    key={index}
                     id={index}
                     title={card.title}
                     phone={card.phone}
                     address={card.address}
+                    days={card.days}
+                    hours={card.hours}
                 />
-            })}
+            ))}
             <CardsNav
-            cardsSize={cards.length}
+            cardsSize={filteredServices.length}
             cardLimit={CARD_LIMIT}
             page={page}
             setPage={setPage}

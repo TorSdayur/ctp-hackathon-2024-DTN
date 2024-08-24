@@ -16,6 +16,7 @@ export default function CardsNav({cardsSize, cardLimit, page, setPage})
         }
     }
 
+    console.log(cardsSize)
     if (page === 0)
     {
         return (

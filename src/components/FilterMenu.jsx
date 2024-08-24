@@ -11,7 +11,7 @@ export default function FilterMenu({onClickBoroughs, onClickAvailabilities, onCl
         <nav className="filter-menu">
             <BoroughsDrowdownMenu onClick={onClickBoroughs}/>
             <AvailabiltyPicker onClick={onClickAvailabilities}/>
-            <DistPicker onClick={onClickDist}/>
+            {/*<DistPicker onClick={onClickDist}/>*/}
         </nav>
     );
 }

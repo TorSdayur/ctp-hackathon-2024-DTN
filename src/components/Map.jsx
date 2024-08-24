@@ -11,16 +11,10 @@ import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import { Icon, divIcon, markerClusterGroup, point } from 'leaflet';
 import MarkerClusterGroup from 'react-leaflet-cluster';
-import { createClient } from '@supabase/supabase-js'
+import supabase from '../utils/supabase'
 
 
 export default function Map() {
-  // Create a single supabase client for interacting with your database
-  const supabase = createClient(
-    // Supabase credentials
-    "https://gadbhrsupsghumaigngg.supabase.co",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdhZGJocnN1cHNnaHVtYWlnbmdnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjQyODIzNjEsImV4cCI6MjAzOTg1ODM2MX0.6jMNgFs_BV-dddLV3ifi5EburlqoA4SpT84ITfwkmMQ"
-  )
 
   // create icon for all Dental resources
   const dentalIcon = new Icon({

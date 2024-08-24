@@ -1,5 +1,5 @@
 //reads food providers from food table
-export function getFoodServices(food_providers, setFoodServices) {
+export function getFoodServices(food_providers) {
     let new_services = [];
     for (const fp of food_providers)
     {
@@ -7,8 +7,8 @@ export function getFoodServices(food_providers, setFoodServices) {
         {
           serviceID: fp['ID'],
           title: fp['PROGRAM'],
-          phone: fp['ORG PHONE'],
-          address: fp['FULL ADDRESS'],
+          phone: fp['PHONE'],
+          address: fp['FULL_ADDRESS'],
           borough: fp['BOROUGH'].toLowerCase(),
           hours: fp['HOURS'],
           days: getDays(
@@ -25,19 +25,23 @@ export function getFoodServices(food_providers, setFoodServices) {
         }
       )
     }
-    setFoodServices(new_services);
+    return new_services;
 }
 
 //currently doesn't handle hours
 function getDays(days_available)
 {
   let a = [];
-  days = ['m','tu', 'w', 'th', 'f', 'sa', 'su'];
+  let days = ['m','tu', 'w', 'th', 'f', 'sa', 'su'];
   for (const index in days_available)
   {
     if (days_available[index])
     {
       a.push(days[index]);
+    }
+    else
+    {
+      a.push('');
     }
   }
   return a;

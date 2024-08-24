@@ -4,20 +4,19 @@ export default function filterFoodServices(
     foodServices,
     boroughs,
     latLong,
-    availabilities,
-    setFilteredServices)
+    availabilities
+)
 {
     //foodServices represents all available food services from db
     let filteredFoodServices = foodServices;
-
     //boroughs currently selected are filtered for
-    if (boroughs)
+    if (boroughs.length > 0)
     {
         filteredFoodServices = filteredFoodServices.filter(
             (foodService) => boroughs.includes(foodService.borough));
     }
     //filters distance from least to greatest distance
-    if (latLong)
+    if (latLong.length > 0)
     {
         const user_loc = latLong;
         filteredFoodServices.sort((a,b) => {
@@ -30,14 +29,14 @@ export default function filterFoodServices(
             return 0;
         })
     }
-    if (availabilities)
+    
+    if (availabilities.length > 0)
     {
         filteredFoodServices = filteredFoodServices.filter(
             (foodService) => filterAvailabilities(availabilities, foodService));
     }
 
-    //update state
-    setFilteredServices(filteredFoodServices);
+    return filteredFoodServices;
 }
 function filterAvailabilities(availabilities, foodService) {
     for (const foodDay of foodService.days)

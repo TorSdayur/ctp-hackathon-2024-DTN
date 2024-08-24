@@ -1,18 +1,21 @@
-export default function getCards(filteredFoodServices, page, cardLimit, setCards)
+//fetchs cards which should actually appear on the webpage
+export default async function getCards(filteredServices, page, cardLimit)
 {
     let cards = [];
     let startPosition = page * cardLimit
     let endPosition = startPosition + cardLimit;
 
     //in the case we are at the final page
-    if (endPosition > filteredFoodServices.length)
+    if (endPosition > filteredServices.length)
     {
-        endPosition = filteredFoodServices.length;
+        endPosition = filteredServices.length;
     }
 
-    for (let i = startPosition; i < endPosition; ++i)
+    for (let i = startPosition; i < endPosition; i++)
     {
-        cards.push(filteredFoodServices[i]);
+        cards.push(filteredServices[i]);
     }
-    setCards(cards);
+    
+    //setCards(cards);
+    return cards;
 }

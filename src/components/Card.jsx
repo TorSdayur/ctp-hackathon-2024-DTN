@@ -1,6 +1,7 @@
 import '../styles/BoroughsDropdownMenu.css'
 
-export default function Card({id, title, phone, address}) {
+export default function Card({id, title, phone, address, days, hours}) {
+    let processed_days = getProcessedDays(days);
     return (
         <div
             key={id}
@@ -8,7 +9,7 @@ export default function Card({id, title, phone, address}) {
         >
             <h2>{title}</h2>
             <div className="times">
-                {days + ': ' + hours}
+                {processed_days + ': ' + hours}
             </div>
             <footer className="contact_info">
                 <h6>{phone}</h6>
@@ -16,4 +17,16 @@ export default function Card({id, title, phone, address}) {
             </footer>
         </div>
     );
+}
+
+function getProcessedDays(u_days)
+{
+    let a = '';
+    let days = ['Mon','Tue','Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
+    for (const index in u_days)
+    {
+        if (u_days[index] != '')
+        a += days[index] + ", ";
+    }
+    return a.substring(0, a.length - 2);
 }

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import FilterMenu from "./FilterMenu"
-import ContentContainer from "./ContentContainer"
 import CardsContainer from "./CardsContainer"
 import Map from "./Map"
 
@@ -14,11 +13,7 @@ export default function Container({foodTable})
     const [boroughs, setBoroughs] = useState([]);
     const [dist, setDist] = useState('');
     const [availabilities, setAvailabilities] = useState([]);
-    const [foodServices, setFoodServices] = useState([]);
-
-    useEffect(() => {
-        getFoodServices(foodTable, setFoodServices);
-      }, []);
+    const foodServices = getFoodServices(foodTable)
     
     const onClickBoroughs = (selectedBorough) => {
         if (boroughs.includes(selectedBorough))
@@ -45,7 +40,7 @@ export default function Container({foodTable})
         if (availabilities.includes(selectedAvailability))
             {
                 setAvailabilities(
-                    availabilities.filter((a) => a != availabilities)
+                    availabilities.filter((a) => a != selectedAvailability)
                 );
             }
             else
@@ -61,18 +56,16 @@ export default function Container({foodTable})
         <div className="container">
             <div className="content-container">
                 <Map />
-                {/*
                 <CardsContainer
                     foodServices={foodServices}
                     boroughs={boroughs}
                     dist={dist}
                     availabilities={availabilities}
                 />
-                */}
             </div>
             <FilterMenu 
                 onClickBoroughs={onClickBoroughs}
-                onClickAvailabilty={onClickAvailabilities}
+                onClickAvailabilities={onClickAvailabilities}
                 onClickDist={onClickDist}
             />
         </div>
