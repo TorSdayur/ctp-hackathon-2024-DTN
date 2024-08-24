@@ -1,4 +1,4 @@
-import '../styles/BoroughsDropdownMenu.css'
+import '../styles/Card.css'
 
 export default function Card({id, title, phone, address, days, hours}) {
     let processed_days = getProcessedDays(days);
